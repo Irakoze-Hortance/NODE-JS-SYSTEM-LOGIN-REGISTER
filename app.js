@@ -2,7 +2,7 @@ var express = require('express');
 var mongoose= require('mongoose')
 var passport = require('passport');
 var bodyParser = require('body-parser');
-var LocalStrategy = require('passport-local-strategy');
+// var LocalStrategy = require('passport-local-strategy');
 var passportLocalMongoose =require('passport-local-mongoose')
 var User=require("./models/userModel")
 var app = express();
@@ -16,7 +16,7 @@ app.use(require('express-session')({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-passport.use(new LocalStrategy(User.authenticate()));
+// passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
