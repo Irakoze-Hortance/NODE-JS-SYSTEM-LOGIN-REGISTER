@@ -1,4 +1,5 @@
-const mongoose=require('../config/database')
+const db=require('../config/database')
+const mongoose=require('mongoose')
 var userSchema=new mongoose.Schema({
     name:String,
     password:String,

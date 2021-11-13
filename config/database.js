@@ -1,10 +1,15 @@
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:node-mongodb',{useNewUrlParser:true});
-var conn=mongoose.connection;
-conn.on("connected",function(){
-    console.log("Database connected successfully")
+const db = require('mongoose');
+const uri = "mongodb+srv://hortance:hortance@cluster0.0pkui.mongodb.net/saintly?retryWrites=true&w=majority";
+db.Mongoose.connect(MONGO_URI,{
+    useCreateIndex:true,
+    useNewUrlParser:true,
+    useUnifiedTopology:true,
+    useFindAndModify:false,
 })
-conn.on('disconnected',function(){
-    console.log("Database disconnected")
+
+.then(() =>{
+    console.log("Connection succefully established]")
 })
-conn.on('Error',console.error.bind(console, "Connection error"));
+.catch(err =>{
+    console.error("Error connecting",err)
+})
