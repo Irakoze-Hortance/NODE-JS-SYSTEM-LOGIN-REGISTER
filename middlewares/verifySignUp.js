@@ -15,3 +15,23 @@ const checkDuplicateEmail=(req,res,next) => {
         next();
     })
 }
+
+checkRolesExisted=async(req,res,next) => {
+    const isValid=await mongoose.Types._ObjectId.isValid(req.body.userRole);
+    if(!isValid) return res.send({ message:"Id must be a valid mongoose object id"})
+
+    if(req.body.userRole){
+        await Role.findById(req.body.userRole)
+        .then((role)=>{
+            if(!role){
+                return res.status(404).send({ message:`Failed! Role ${req.body.userRole} does not exit`})
+            }else{
+                next();
+            }
+
+        })
+        .catch((err)=>{
+            return res.status(400).send({ message:err.message})
+        })
+    }
+}
