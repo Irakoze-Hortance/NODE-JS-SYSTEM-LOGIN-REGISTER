@@ -35,3 +35,9 @@ checkRolesExisted=async(req,res,next) => {
         })
     }
 }
+
+const verifySignUp={
+    checkDuplicateEmail,
+    checkRolesExisted,
+}
+module.exports=verifySignUp
