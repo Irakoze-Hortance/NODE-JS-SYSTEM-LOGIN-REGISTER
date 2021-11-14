@@ -6,5 +6,6 @@ const userController=require('../controllers/userController')
 router.get("/all",userController.allAccess)
 router.get("/user",[authJwt.verifyToken,authJwt.isAdmin],userController.userBoard)
 router.get("/admin",[authJwt.verifyToken,authJwt.isAdmin],userController.adminBoard)
+router.post("/",userController.allAccess)
 
 module.exports=router
