@@ -10,7 +10,6 @@ app.use(cors)
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(require('express-session')({
-    secret:"node js mongodb",
     resave:false,
     saveUninitialized:false
 }));
@@ -23,7 +22,7 @@ app.get("/", (req, res) => {
 
 const baseUrlRoute="/api";
 app.use(`${baseUrlRoute}users/`,userRoutes)
-var port = process.env.PORT ||3000;
-app.listen(port,function(){
-    console.log("Server has started");
-})
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
+});
