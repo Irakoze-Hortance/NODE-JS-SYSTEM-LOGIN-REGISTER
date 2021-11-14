@@ -1,6 +1,6 @@
 const jwt=require('jsonwebtoken')
 const config=require('../config/authConfig')
-const db=require('../models')
+const db=require('../models/userModel')
 const {User}=db.User;
 const Role=db.role;
 
