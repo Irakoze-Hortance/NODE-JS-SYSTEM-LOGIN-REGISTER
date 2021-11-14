@@ -1,4 +1,4 @@
-const {authJwt}=require('../middlewares/authJwt')
+const {authJwt}=require('../middlewares/')
 const express = require('express')
 const router=express.Router()
 const userController=require('../controllers/userController')
