@@ -1,10 +1,8 @@
-const db = require('mongoose');
+const db = require('../models');
 const uri = "mongodb+srv://hortance:hortance@cluster0.0pkui.mongodb.net/saintly?retryWrites=true&w=majority";
-db.Mongoose.connect(MONGO_URI,{
-    useCreateIndex:true,
+db.mongoose.connect(uri,{
     useNewUrlParser:true,
     useUnifiedTopology:true,
-    useFindAndModify:false,
 })
 
 .then(() =>{
