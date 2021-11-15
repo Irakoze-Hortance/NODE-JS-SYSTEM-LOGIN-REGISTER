@@ -6,7 +6,7 @@ db.mongoose.connect(uri,{
 })
 
 .then(() =>{
-    console.log("Connection succefully established]")
+    console.log("Connection succefully established")
 })
 .catch(err =>{
     console.error("Error connecting",err)
