@@ -17,7 +17,7 @@ exports.signup=(req,res)=>{
          if(err){
              res.status(500).send({message:err})
          }
-     })
+     
     
     if(req.body.roles){
         Role.find({
@@ -54,14 +54,15 @@ exports.signup=(req,res)=>{
             })
         })
     }
+});
     
 };
 
 exports.signin=(req, res) => {
     User.findOne({
-        email:req.body.email,
+        username:req.body.username,
     })
-    .populate("role","__v")
+    .populate("roles","-__v")
     .exec((err,user) => {
         if(err){
             res.status(500).send({message:err});
@@ -81,11 +82,15 @@ exports.signin=(req, res) => {
             expiresIn:86400,
         });
 
+        var authorities=[];
+        for(let i=0;i<user.roles.length;i++){
+            authorities.pus("ROLE_"+user.roles[i].name.toUperCase());
+        }
         res.status(200).send({
             id:user._id,
-            fullName:user.fullName,
+            username:user.username,
             email:user.email,
-            role:req.body.role,
+            role:authorities,
             acessToken:token,
         });
     });
