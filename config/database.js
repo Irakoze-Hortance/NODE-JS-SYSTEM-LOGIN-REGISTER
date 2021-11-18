@@ -1,5 +1,5 @@
 const db = require('../models');
-const uri = "mongodb+srv://hortance:hortance@cluster0.0pkui.mongodb.net/saintly?retryWrites=true&w=majority";
+const uri = "mongodb://localhost:27017/docs";
 db.mongoose.connect(uri,{
     useNewUrlParser:true,
     useUnifiedTopology:true,
