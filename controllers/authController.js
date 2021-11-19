@@ -78,13 +78,13 @@ exports.signin=(req, res) => {
         if(!passwordIsValid){
             return res.status(401).send({message:"Invalid password",accessToken:null});
         }
-        var token=jwt.sign({id:userid},config.secret,{
+        var token=jwt.sign({id:user.id},config.secret,{
             expiresIn:86400,
         });
 
         var authorities=[];
         for(let i=0;i<user.roles.length;i++){
-            authorities.pus("ROLE_"+user.roles[i].name.toUperCase());
+            authorities.push("ROLE_"+user.roles[i].name.toUpperCase());
         }
         res.status(200).send({
             id:user._id,
