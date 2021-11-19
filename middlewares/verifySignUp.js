@@ -1,9 +1,8 @@
 const db=require('../models')
-const {User}=db.user
+const User=db.user;
 const ROLES=db.ROLES
-const mongoose=require('mongoose')
 
-const checkDuplicateEmailOrUsername=(req,res,next) => {
+checkDuplicateEmailOrUsername=(req,res,next) => {
     User.findOne({ 
         username: req.body.username,
     }).exec((err, user) => {
@@ -24,10 +23,10 @@ const checkDuplicateEmailOrUsername=(req,res,next) => {
                 return;
             }
             next();
-        })
+        });
         
-    })
-}
+    });
+};
 
 checkRolesExisted=(req,res,next) => {
     if(req.body.roles){
