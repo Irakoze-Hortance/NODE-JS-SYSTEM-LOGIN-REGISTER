@@ -88,3 +88,23 @@ removeDocument=async (req, res)=>{
 
 }).catch(err=>res.send({success:false,message:err.message}))
 }
+
+getDocuments=(req,res)=>{
+    Doc.find()
+        .then((foundDocs)=>{
+            if(foundDocs.length <=0){
+                return res.status(400).send(foundDocs)
+            }else{
+                return res.status(200).json({success:true,data:foundDocs})
+            }
+        }).catch(()=>{
+            return res.status(400).send({
+                success:false,
+                message:"Something went wrong"
+            })
+        })
+}
+
+getByName=(req,res)=>{
+    
+}
