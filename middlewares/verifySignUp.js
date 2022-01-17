@@ -9,7 +9,7 @@ checkDuplicateEmailOrUsername=(req,res,next) => {
         if(err) return res.status(500).send({ message:err.message});
 
         if(user){
-            return res.status(200).send({ message:"Failed! Username already in use "})
+            return res.status(200).send({ message:"Failed! Email already in use "})
         }
         User.findOne({
             email:req.body.email,
