@@ -32,8 +32,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/",(req,res) => {
   res.json({message:"Welcome"})
+  res.render('home')
 });
-
+app.set('view engine','ejs')
 require("./routes/authRoutes")(app)
 require("./routes/userRoutes")(app)
 
