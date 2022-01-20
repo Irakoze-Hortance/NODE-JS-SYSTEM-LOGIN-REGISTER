@@ -74,4 +74,10 @@ export default class Register extends Component{
             password:e.target.value
         })
     }
+
+    onChangeEmail(e){
+        this.setState({
+            email:e.target.value
+        })
+    }
 }
