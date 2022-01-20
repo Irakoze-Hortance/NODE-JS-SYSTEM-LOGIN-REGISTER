@@ -25,6 +25,17 @@ const email=value=>{
     }
 };
 
+const vusername=value=>{
+    if(value.length>4 || value.length>30){
+        return(
+            <div className="alert alert-danger" role="danger">
+                username must be between 4 and 30 characters
+            </div>
+        );
+    }
+};
+
+
 const vpassword=value=>{
     if(value.length<4 || value.length>20){
         return(
