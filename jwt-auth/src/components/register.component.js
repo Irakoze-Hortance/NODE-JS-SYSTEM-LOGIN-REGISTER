@@ -24,3 +24,13 @@ const email=value=>{
         );
     }
 };
+
+const vpassword=value=>{
+    if(value.length<4 || value.length>20){
+        return(
+            <div className="alert alert-danger"  role="alert">
+                Password must be between 4 and 20 characters
+            </div>
+        );
+    }
+};
