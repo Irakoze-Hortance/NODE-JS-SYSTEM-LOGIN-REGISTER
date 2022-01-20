@@ -88,5 +88,25 @@ export default class Register extends Component{
             message:"",
             successful:false
         });
+
+        this.form.validateAll();
+
+        if(his.checkBtn.context._errors.length===0){
+            AuthService.register(
+                this.state.username,
+                this.state.email,
+                this.state.password
+            ).then(
+                response=>{
+                    this.setState({
+                        message:response.data.message,
+                        successful:true
+                    });
+                },
+                error=>{
+                    
+                }
+            )
+        }
     }
 }
