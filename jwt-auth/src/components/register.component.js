@@ -80,4 +80,13 @@ export default class Register extends Component{
             email:e.target.value
         })
     }
+
+    handleRegister(e){
+        e.preventDefault();
+
+        this.setState({
+            message:"",
+            successful:false
+        });
+    }
 }
