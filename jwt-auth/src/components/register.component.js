@@ -8,10 +8,19 @@ import AuthService from "../services/auth.service";
 const required=value=>{
     if(!value){
         return(
-            <div classNAme="alert alert-danger">
+            <div className="alert alert-danger">
                 This  is a required field
             </div>
         );
     }
 };
 
+const email=value=>{
+    if(!isEmail(value)){
+        return(
+            <div className="alert alert-danger" role="alert">
+                This is not a valid email
+            </div>
+        );
+    }
+};
