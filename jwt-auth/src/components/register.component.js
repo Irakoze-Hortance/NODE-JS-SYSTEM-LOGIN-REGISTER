@@ -130,6 +130,31 @@ export default class Register extends Component{
                     alt="avatar.jpg"
                     className="profile-img-card"
                     />
+
+                    <Form                   
+                    onSubmit={this.handleRegister}
+                    ref={c=>{
+                        this.form=c;
+                    }}>
+
+                        {!this.state.successful&&(
+                            <div>
+                                <div className="form-group">
+                                    <label htmlFor="username">Username</label>
+                                    <Input
+                                    type="text"
+                                    className="form-control"
+                                    name="username"
+                                    value={this.state.username}
+                                    onChange={this.onChangeUsername}
+                                    validations={[required,vusername]}
+                                    />
+                                </div>
+                                
+                            </div>
+                        )}
+
+                    </Form>
                 </div>
             </div>
         )
