@@ -20,3 +20,5 @@ class UserService{
         return axios.get(API_URL + 'admin', {headers:authHeader()});
     }
 }
+
+export default new UserService();
