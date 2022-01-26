@@ -30,5 +30,10 @@ import AuthService from "../services/auth.service";
 
      }
 
-     
+     onChangeUsername(e){
+         this.setState({
+             username: e.target.target
+         });
+     }
+
  }
