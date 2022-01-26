@@ -12,4 +12,23 @@ import AuthService from "../services/auth.service";
              </div>
          );
      }
+ };
+
+ export default class Login extends Component{
+     constructor(props){
+         super(props);
+         this.handleLogin=this.handleLogin.bind(this);
+         this.onChangeUsername=this.onChangeUsername.bind(this);
+         this.onChangePassword=this.onChangePassword.bind(this);
+
+         this.state={
+             username:"",
+             password:"",
+             loading:false,
+             message:""
+         };
+
+     }
+
+     
  }
