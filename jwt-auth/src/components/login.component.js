@@ -57,6 +57,14 @@ import AuthService from "../services/auth.service";
                      this.props.history.push("/profile");
                      window.location.reload()
                  },
+                 error=>{
+                     const resMessage=
+                     (error.response &&
+                        error.response.data &&
+                        error.response.data.message)||
+                        error.message ||
+                        error.toString();
+                 }
              )
          }
      }
