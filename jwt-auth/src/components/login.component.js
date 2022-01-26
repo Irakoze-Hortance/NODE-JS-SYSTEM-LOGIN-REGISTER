@@ -36,4 +36,10 @@ import AuthService from "../services/auth.service";
          });
      }
 
+     onChangePassword(e){
+         this.setState({
+             password:e.target.value
+         })
+     }
+
  }
