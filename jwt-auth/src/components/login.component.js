@@ -42,4 +42,14 @@ import AuthService from "../services/auth.service";
          })
      }
 
+     handleLogin(e){
+         e.preventDefault();
+
+         this.setState({
+             message:"",
+             loading:true
+         });
+         this.form.validateAll();
+     }
+
  }
