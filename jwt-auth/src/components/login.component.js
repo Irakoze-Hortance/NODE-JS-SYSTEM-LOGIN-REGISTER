@@ -64,8 +64,15 @@ import AuthService from "../services/auth.service";
                         error.response.data.message)||
                         error.message ||
                         error.toString();
+
+                        this.setState({
+                            loading:false,
+                            message:resMessage
+                        });
                  }
-             )
+             );
+         }else{
+             this.setState({loading:false});
          }
      }
 
